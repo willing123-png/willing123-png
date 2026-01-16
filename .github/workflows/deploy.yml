@@ -18,11 +18,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout (with submodules)
+      - name: Checkout
         uses: actions/checkout@v4
-        with:
-          submodules: recursive
-          fetch-depth: 0
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
@@ -30,27 +27,15 @@ jobs:
           hugo-version: "0.154.5"
           extended: true
 
-      - name: Ensure theme (PaperMod)
-        shell: bash
+      - name: Install theme (PaperMod)
         run: |
-          set -e
-          mkdir -p themes
-          if [ -d "themes/PaperMod" ]; then
-            echo "PaperMod exists."
-          else
-            echo "Cloning PaperMod..."
-            git clone --depth 1 https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod
+          if [ ! -d "themes/PaperMod" ]; then
+            mkdir -p themes
+            git clone https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod
           fi
-          test -f themes/PaperMod/theme.toml || test -d themes/PaperMod/layouts
 
       - name: Build
-        run: |
-          hugo --minify --destination public
-          echo "==== public output ===="
-          ls -la public | head -n 50
-          echo "==== check index files ===="
-          test -f public/index.html
-          test -f public/index.xml || true
+        run: hugo --minify
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

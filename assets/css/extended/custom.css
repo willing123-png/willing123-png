@@ -1,0 +1,129 @@
+/* ============================================
+   完全覆盖 PaperMod 主题样式
+   ============================================ */
+
+/* ========== 文章列表样式 ========== */
+/* 调整文章列表标题和时间布局 */
+.post-entry .entry-header {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+    overflow: visible !important;
+}
+
+.post-entry .entry-header h2 {
+    flex: 1 1 auto;
+    margin: 0;
+    min-width: 0;
+    font-size: 24px !important;
+}
+
+.post-entry .entry-header h2.entry-hint-parent {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.entry-meta-inline {
+    color: var(--secondary);
+    font-size: 13px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+/* 移除文章条目的背景颜色和边框 */
+.post-entry {
+    background: transparent !important;
+    border: none !important;
+}
+
+/* 统一 first-entry 样式（如果还有使用） */
+.first-entry {
+    background: transparent !important;
+    border: none !important;
+    min-height: auto !important;
+    margin: 0 0 var(--gap) 0 !important;
+    padding: var(--gap) !important;
+}
+
+.first-entry .entry-header {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+    overflow: visible !important;
+}
+
+.first-entry .entry-header h1,
+.first-entry .entry-header h2 {
+    flex: 1 1 auto;
+    margin: 0;
+    min-width: 0;
+    font-size: 24px !important;
+}
+
+/* ========== 文章内容样式 ========== */
+/* 调整文章正文字号 */
+.post-content {
+    font-size: 15px !important;
+    line-height: 1.7 !important;
+}
+
+.post-content p {
+    font-size: 15px !important;
+}
+
+.post-entry .entry-header h2 a {
+  transition: none !important;
+  animation: none !important;
+}
+/* ========== 页面布局样式 ========== */
+/* 可以根据需要覆盖主容器样式 */
+/* .main { ... } */
+
+/* ========== 头部导航样式 ========== */
+/* 可以根据需要覆盖导航栏样式 */
+/* .nav { ... } */
+
+/* ========== 底部样式 ========== */
+/* 可以根据需要覆盖底部样式 */
+/* .footer { ... } */
+
+/* ========== 其他通用样式覆盖 ========== */
+/* 在这里添加其他需要覆盖的样式 */
+
+/* 示例：覆盖分页样式 */
+/* .pagination a { ... } */
+
+/* 示例：覆盖代码块样式 */
+/* .post-content code { ... } */
+/* .post-content pre { ... } */
+
+/* ========== 文章排版样式 ========== */
+/* 一句文字一行的样式 - 每句话独立成行，间距更大 */
+.post-content .sentence-break {
+    margin-bottom: 1.5em !important;
+    margin-top: 0 !important;
+    line-height: 1.8 !important;
+}
+
+/* 或者使用更简洁的方式：让所有段落间距更大（可选） */
+.post-content .poem-style p {
+    margin-bottom: 1.5em !important;
+    line-height: 1.8 !important;
+}
+
+/* 如果整个文章都要使用一句一行的样式，可以使用这个类 */
+.post-content.one-sentence-per-line p {
+    margin-bottom: 1.5em !important;
+    line-height: 1.8 !important;
+    text-indent: 0 !important;
+}
